@@ -22,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body data-spy="scroll" data-target=".navbar" data-offset="70">
     
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -38,15 +38,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Service</a></li>
-            <li><a href="#">Contact</a></li>
+            <li class="active"><a href="#home-id">Home</a></li>
+            <li><a href="#about-id">About</a></li>
+            <li><a href="#service-id">Service</a></li>
+            <li><a href="#contact-id">Contact</a></li>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <section class="me-welcome">
+    <section id="home-id" class="me-welcome">
         <div class="container">
             <br><br>
             <h1>Muri Budiman</h1>
@@ -54,7 +54,7 @@
         </div>
     </section>
 
-    <section class="me-about">
+    <section id="about-id" class="me-about">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-12 col-xs-12">
@@ -76,7 +76,7 @@
         </div>
     </section>
 
-    <section class="me-service">
+    <section id="service-id" class="me-service">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -170,7 +170,7 @@
         </div>
     </section>
 
-     <section class="me-about">
+     <section id="contact-id" class="me-about">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -210,5 +210,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $('a[href*="#"]:not([href="#"])').click(function() {
+          if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+              if (target.length) {
+                  $('html, body').animate({
+                      scrollTop: target.offset().top - 70
+                  }, 1000);
+                  return false;
+              }
+          }
+      });
+    </script>
   </body>
 </html>
